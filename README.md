@@ -23,8 +23,8 @@
 
 到 [Releases](../../releases) 下载：
 
-- `三角洲据点UI Setup x.x.x.exe` — 安装版（可选安装目录、建桌面快捷方式）
-- `三角洲据点UI-vx.x.x-便携版.exe` — 免安装，双击就能跑
+- `DeltaStrongholdUI-vx.x.x-portable.zip` — exe 压缩包（编译好的程序，解压后运行 `三角洲据点UI.exe`）
+- `DeltaStrongholdUI-vx.x.x-source.zip` — 源码包（`npm install && npm start` 可跑）
 
 Windows 10/11 x64。没做代码签名，首次运行可能被 SmartScreen 拦，点「更多信息 → 仍要运行」即可。
 
@@ -33,7 +33,7 @@ Windows 10/11 x64。没做代码签名，首次运行可能被 SmartScreen 拦�
 ```bash
 npm install     # 首次
 npm start       # 开发模式
-npm run dist    # 打包（安装版 + 便携版，输出到 dist/）
+npm run dist    # 打包（输出到 dist/）
 ```
 
 需要 Node.js 18+（推荐 20 LTS）。
@@ -80,7 +80,7 @@ npx electron tools/probe.js probe-suite2.js   # 编辑器 / 参数 / 护送 91 �
 # 导出视频的端到端测试（6 个用例，会真的编码出文件）
 npx electron tools/export-test.js
 
-# 改了 js/css 之后重打 asar + 便携版
+# 改了 js/css 之后重打 asar + exe 压缩包
 node tools/build-portable.js
 ```
 
