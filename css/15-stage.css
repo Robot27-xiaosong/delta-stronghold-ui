@@ -1,0 +1,214 @@
+/* 15-stage.css — 中间录屏舞台 + 据点卡片 */
+/* ============================================================
+   中间录屏舞台
+   ============================================================ */
+.stage-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.stage-hint {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: rgba(128,128,128,0.5);
+  letter-spacing: 2px;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.points-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* ============================================================
+   据点卡片
+   ============================================================ */
+.stronghold {
+  position: relative;
+  width: var(--point-size, 220px);
+  height: var(--point-size, 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stronghold-bg {
+  position: absolute;
+  inset: 6px;
+  background: var(--point-bg);
+  border-radius: 3px;
+}
+.border-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.border-path {
+  fill: none;
+  stroke-width: var(--border-width, 7px);
+  stroke-linejoin: miter;
+  stroke-linecap: butt;
+  transition: none;
+}
+.border-path.hidden { display: none; }
+
+/* 普通状态：纯色边框，无光晕 */
+.border-path.green { stroke: var(--gti-glow); }
+.border-path.red { stroke: var(--havvk-glow); }
+.border-path.white { stroke: var(--white-glow); }
+
+/* 文字层 */
+.text-layer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.text-elem {
+  font-family: 'TacticalBold', 'Consolas', 'Microsoft YaHei', sans-serif;
+  font-weight: normal;
+  letter-spacing: 4px;
+  transition: color 0.15s;
+  user-select: none;
+  line-height: 1;
+}
+.text-elem.name { font-size: calc(var(--point-size, 220px) * 0.5); }   /* 方块高度的 50% */
+.text-elem.alert { font-size: calc(var(--point-size, 220px) * 0.5); }  /* 与据点名同尺寸 */
+/* 大事件「据点被摧毁」的叉号：不再是字符 ×，改成高清剪影图
+   —— 白色 PNG + mask 上色，颜色跟着 .text-neutral（白）走
+   —— base64 在 js/00-assets.js，CSS 变量 --bigevent-x-mask 由 00-core.js 注入
+   —— 故意把原图压扁一点（宽 > 高），所以 mask-size 用 100% 100% 拉伸，
+      不能用 contain（那样只会多留空白，形状不变） */
+.text-elem.destroy {
+  display: block;
+  width: calc(var(--point-size, 220px) * 0.46);
+  aspect-ratio: 252 / 230;      /* 比原图 252/256 更扁；高 ≈ 方块 0.42 */
+  background-color: currentColor;
+  -webkit-mask-image: var(--bigevent-x-mask);
+  mask-image: var(--bigevent-x-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  font-size: 0;      /* 文本已置空，字号清零防止行高把方块顶歪 */
+  letter-spacing: 0;
+}
+
+.text-gti { color: var(--gti-text); }
+.text-havvk { color: var(--havvk-text); }
+.text-neutral { color: var(--neutral-text); }
+
+/* ============================================================
+   附属据点（卫星据点）
+   ============================================================ */
+.satellite-point .text-layer {
+  flex-direction: column;
+}
+
+.satellite-icon {
+  flex: none;
+  width: 55%;
+  height: 55%;
+  background-color: #ffffff;      /* 图标颜色 = currentColor 上色，由 data-color 决定 */
+  -webkit-mask-image: var(--sat-icon-mask);
+  mask-image: var(--sat-icon-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  transition: background-color 0.15s;
+}
+/* 图标位图只在 js/00-assets.js 存一份（data URI），这里用变量引用 */
+:root {
+  --sat-icon-mask: none;
+}
+/* 阵营色用 CSS 变量，别在 JS 里写死十六进制 */
+.satellite-icon[data-color="gti"] { background-color: var(--gti-text); }
+.satellite-icon[data-color="havvk"] { background-color: var(--havvk-text); }
+.satellite-icon[data-color="neutral"] { background-color: var(--neutral-text); }
+
+.satellite-mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--point-size, 220px) * 0.5);
+}
+/* 附属据点的叉号：mark 层本身只是居中的容器，图放在 ::after 上
+   （否则 inset:0 + 背景色会把整个方块刷白） */
+.satellite-mark.destroy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+  font-size: 0;
+}
+.satellite-mark.destroy::after {
+  content: '';
+  display: block;
+  width: calc(var(--point-size, 220px) * 0.46);
+  aspect-ratio: 252 / 230;      /* 和普通据点同一个扁比例 */
+  background-color: currentColor;
+  -webkit-mask-image: var(--bigevent-x-mask);
+  mask-image: var(--bigevent-x-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* 据点列表中的附属据点徽章 */
+.ptype-badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+  font-weight: normal;
+}
+.ptype-badge.satellite {
+  background: rgba(100, 150, 255, 0.2);
+  color: #6aa8ff;
+  border: 1px solid rgba(100, 150, 255, 0.4);
+}
+
+/* 透明度动画辅助类 */
+.fade-out { opacity: 0; transition: opacity 0.5s ease-in-out; }
+.fade-in { opacity: 1; transition: opacity 0.5s ease-in-out; }
+
+/* 据点选中指示（已移除虚线） */
+
+/* 背景切换按钮固定在舞台右上角 */
+.bg-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+}

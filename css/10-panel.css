@@ -1,0 +1,357 @@
+/* 10-panel.css — 左侧控制面板 */
+/* ============================================================
+   左侧控制面板
+   ============================================================ */
+.control-panel {
+  width: 400px;
+  min-width: 400px;
+  background: var(--panel-bg);
+  color: var(--panel-text);
+  padding: 18px 20px;
+  overflow-y: auto;
+  border-right: 1px solid var(--panel-border);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.control-panel::-webkit-scrollbar { width: 6px; }
+.control-panel::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.panel-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px; height: 16px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.panel-section { display: flex; flex-direction: column; gap: 8px; }
+.panel-label { font-size: 12px; color: var(--panel-muted); letter-spacing: 0.5px; }
+
+.btn {
+  padding: 7px 14px;
+  border: 1px solid #3a3d48;
+  background: #252830;
+  color: var(--panel-text);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: #30343e; border-color: var(--accent); }
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: #6b9aff; }
+.btn.danger { background: #3a1f1f; border-color: #5a2a2a; color: #ff8a8a; }
+.btn.danger:hover { background: #4a2525; }
+.btn.small { padding: 4px 10px; font-size: 11px; }
+
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+input[type="text"], textarea, select {
+  background: #1a1c22;
+  border: 1px solid #33363f;
+  color: var(--panel-text);
+  padding: 7px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: "Consolas", monospace;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input[type="text"]:focus, textarea:focus, select:focus { border-color: var(--accent); }
+textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+
+.point-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+.point-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: #22252d;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.point-item:hover { border-color: #444; }
+.point-item.active { border-color: var(--accent); background: #1e2a3a; }
+.point-item .pname { font-weight: 600; }
+.point-item .pstate { font-size: 10px; padding: 2px 6px; border-radius: 3px; }
+.pstate.green { background: rgba(64,255,112,0.15); color: var(--gti-text); }
+.pstate.red { background: rgba(255,80,80,0.15); color: var(--havvk-text); }
+.pstate.none { background: rgba(255,255,255,0.08); color: #aaa; }
+
+.log-box {
+  background: #111318;
+  border: 1px solid #2a2d36;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 11px;
+  font-family: "Consolas", monospace;
+  height: 160px;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+.log-box .log-info { color: #7ec8ff; }
+.log-box .log-ok { color: var(--ok); }
+.log-box .log-err { color: var(--error); }
+.log-box .log-warn { color: #ffd43b; }
+.log-line { display: flex; gap: 6px; }
+.log-time { color: #555; flex-shrink: 0; }
+
+.example-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 4px 10px;
+  background: #1e2128;
+  border: 1px solid #33363f;
+  border-radius: 12px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.example-group { margin-bottom: 6px; }
+.example-group-title { font-size: 10px; color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.param-toggle { color: #5b8cff; cursor: pointer; font-size: 11px; margin-left: 8px; white-space: nowrap; }
+.param-toggle:hover { text-decoration: underline; }
+.code-toolbar { display: flex; gap: 8px; margin-top: 6px; }
+.param-help {
+  background: #1a1c22;
+  border: 1px solid #2a2d36;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #aaa;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.param-item { margin-bottom: 4px; }
+.param-help code {
+  background: #252730;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #40ff70;
+  font-size: 10px;
+  word-break: break-all;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* 模式切换 */
+.mode-tabs { display: flex; gap: 4px; margin-bottom: 8px; }
+.mode-tab {
+  flex: 1;
+  padding: 6px;
+  text-align: center;
+  background: #1e2128;
+  border: 1px solid #33363f;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--panel-muted);
+  transition: all 0.15s;
+}
+.mode-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* 可视化模式 */
+.visual-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+.visual-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #22252d;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.visual-item .vi-idx {
+  width: 20px;
+  text-align: center;
+  color: var(--panel-muted);
+  flex-shrink: 0;
+}
+.visual-item .vi-type {
+  font-weight: 600;
+  color: #7ec8ff;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+.visual-item .vi-params {
+  flex: 1;
+  color: #aaa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.visual-item .vi-actions { display: flex; gap: 2px; flex-shrink: 0; }
+.visual-item .vi-drag { color:#555; cursor:grab; font-size:12px; letter-spacing:-2px; user-select:none; }
+.visual-item .vi-drag:active { cursor:grabbing; }
+.visual-item.dragging { opacity:0.4; }
+.visual-item.drag-over { border-color:#4a9eff !important; background:rgba(74,158,255,0.1) !important; }
+.visual-item .vi-actions button {
+  padding: 2px 6px;
+  font-size: 10px;
+  background: #2a2d36;
+  border: 1px solid #3a3d48;
+  color: #aaa;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.visual-item .vi-actions button:hover { color: #fff; border-color: var(--accent); }
+.visual-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background: #1a1c22;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.visual-add-form select, .visual-add-form input {
+  width: 100%;
+}
+.visual-param-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.visual-param-row label {
+  font-size: 11px;
+  color: var(--panel-muted);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+.visual-param-row input { flex: 1; }
+.visual-empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--panel-muted);
+  font-size: 12px;
+}
+
+/* ============================================================
+   列表参数编辑器（护送的检查点 / 坦克状态）
+   —— 可视化面板和节点卡片共用，行内窄输入框 + 删除 + 添加
+   ============================================================ */
+.plist {
+  margin: 8px 0 10px;
+  padding: 8px 10px;
+  background: #1e2028;
+  border: 1px solid #33363f;
+  border-radius: 6px;
+}
+.plist-title { font-size: 12px; color: #9aa3b2; margin-bottom: 3px; }
+.plist-title i { color: #ff8080; font-style: normal; }
+.plist-hint { font-size: 11px; color: #6f7684; line-height: 1.5; margin-bottom: 6px; }
+.plist-heads { display: flex; gap: 6px; font-size: 10.5px; color: #5f6675; margin-bottom: 3px; }
+.plist-heads .plist-head { flex: 1; min-width: 0; }
+.plist-heads > span:last-child { width: 22px; flex: none; }
+.plist-rows { display: flex; flex-direction: column; gap: 5px; }
+.plist-row { display: flex; gap: 6px; align-items: center; }
+.plist-row input,
+.plist-row select {
+  flex: 1;
+  min-width: 0;
+  background: #252730;
+  border: 1px solid #3a3d48;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 4px 6px;
+}
+.plist-row select { cursor: pointer; }
+/* 窄数字列固定宽度，把剩下的空间留给「状态」下拉 */
+.plist-row input[data-col="seg"],
+.plist-row input[data-col="at"],
+.plist-row input[data-col="remain"],
+.plist-row input[data-col="bonus"] { flex: 0 0 56px; }
+.plist-del {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  line-height: 1;
+  border: none;
+  border-radius: 4px;
+  background: #3a2028;
+  color: #ff8080;
+  cursor: pointer;
+  font-size: 11px;
+}
+.plist-del:hover { background: #552028; color: #fff; }
+.plist-add {
+  margin-top: 6px;
+  width: 100%;
+  background: #23262f;
+  border: 1px dashed #3a3d48;
+  color: #8fb6a0;
+  border-radius: 4px;
+  font-size: 11.5px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.plist-add:hover { border-color: #40ff70; color: #40ff70; }
+/* 检查点算出来的时刻表（「坦克状态」里的第几秒照着这个填） */
+.plist-legs {
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: #1c1e25;
+  border-left: 2px solid #3a3d48;
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #9aa2b1;
+}
+.plist-legs:empty { display: none; }
+.plist-legs-title { color: #6f7684; margin-bottom: 3px; }
+.plist-leg b { color: #cfd6e2; font-weight: 600; }
+.plist-leg i { color: #ff5050; font-style: normal; }
+
+/* 「坦克状态」和检查点时间对不上时的 ⚠ 提示（每条带一句改法） */
+.plist-conflicts {
+  margin-top: 8px;
+  padding: 7px 9px;
+  background: rgba(255, 176, 32, 0.08);
+  border-left: 2px solid #ffb020;
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 1.55;
+}
+.plist-conflicts:empty { display: none; }
+.plist-conflict-title { color: #ffb020; font-weight: 600; margin-bottom: 4px; }
+.plist-conflict { margin-top: 5px; }
+.plist-conflict-text { color: #e6c98a; }
+.plist-conflict-fix { color: #9aa2b1; padding-left: 10px; }
+.plist-conflict-fix::before { content: ''; }

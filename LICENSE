@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Robot27
+Copyright (c) 2026 我是小宋awa (B站)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---------------------------------------------------------------------------
+关于第三方素材的说明：
+
+本许可证只覆盖本仓库的代码。仓库中包含的游戏相关素材
+（内嵌字体、图标、坦克 / 旗帜贴图等）版权归《三角洲行动》权利方所有，
+仅作为个人学习交流使用，不适用上述 MIT 授权，请勿用于商业用途。

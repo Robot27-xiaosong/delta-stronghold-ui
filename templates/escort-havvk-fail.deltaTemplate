@@ -1,0 +1,43 @@
+{
+  "version": "3.0.0",
+  "name": "阻击车队 · HAVVK · 到撤离点时间耗尽（失败，4:05 定格 3 秒）",
+  "createdAt": "2026-10-29T10:16:00.000Z",
+  "blocks": [
+    {
+      "type": "redState"
+    },
+    {
+      "type": "bigEvent",
+      "variant": 4,
+      "totalSeconds": 200,
+      "warningAt": 20,
+      "faction": "havvk",
+      "label": "阻击车队",
+      "checkpoints": [
+        {
+          "remain": 120,
+          "bonus": 45
+        },
+        {
+          "remain": 0,
+          "bonus": 0
+        }
+      ],
+      "tankStates": [
+        {
+          "seg": 1,
+          "at": 0,
+          "state": "arrow1"
+        },
+        {
+          "seg": 2,
+          "at": 10,
+          "state": "warn"
+        }
+      ],
+      "failMode": "checkpoint",
+      "failValue": 2,
+      "holdSeconds": 3
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0",
+  "date": "2026-10-29",
+  "notes": [
+    "护送车队大事件：检查点加时、坦克状态图标、中途失败都能自定义",
+    "坦克状态按「第几段 + 段内第几秒」填，改检查点不用重算",
+    "坦克状态和检查点时间冲突时会给出 ⚠ 提示和改法",
+    "新增实验性开关：旧版 / 新版大事件4 可切换",
+    "导出默认 MP4（H.264 标准封装），需要透明用 WebM",
+    "灰块透明度可调，导出同步"
+  ],
+  "downloads": {
+    "github": "https://github.com/Robot27-xiaosong/delta-stronghold-ui/releases"
+  },
+  "affiliated": [
+    {
+      "id": "hud_demo",
+      "name": "三角洲全面战场 · 局内提示工具",
+      "version": "0.0.1-alpha.1",
+      "size": 117616689,
+      "exe": "deltaforce-hud-tool.exe",
+      "asset": "deltaforce-hud-tool.exe",
+      "repo": "Robot27-xiaosong/deltaforce-hud-tool",
+      "tag": "v0.0.1-alpha.1",
+      "sha256": "1a2c779163b7c077e4ea397d1dabcaa2c1a8cbdd12237fc4ad40fbad5d9128cb",
+      "url": "https://github.com/Robot27-xiaosong/deltaforce-hud-tool/releases/download/v0.0.1-alpha.1/deltaforce-hud-tool.exe"
+    }
+  ]
+}

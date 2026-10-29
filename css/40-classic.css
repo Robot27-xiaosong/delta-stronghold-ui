@@ -1,0 +1,5 @@
+/* 40-classic.css — 经典版：左右栏合并为左侧边栏 */
+/* ===== 经典版：左右栏合并为左侧边栏 ===== */
+.classic-sidebar { display:flex; flex-direction:column; }
+.panel-left, .panel-right { display:flex; flex-direction:column; gap:16px; }
+.splitter { display:none; }

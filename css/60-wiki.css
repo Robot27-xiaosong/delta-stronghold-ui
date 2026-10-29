@@ -1,0 +1,115 @@
+/* 60-wiki.css — Wiki 风格教程 */
+/* ===== Wiki风格教程 ===== */
+.wiki-toc {
+  background:linear-gradient(135deg,#1a2332,#1e1e2a);
+  border:1px solid #2a3a4a; border-radius:12px;
+  padding:16px 20px; margin-bottom:20px;
+}
+.wiki-toc-title { font-size:15px; font-weight:700; color:#6ab0ff; margin-bottom:10px; }
+.wiki-toc-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:6px 16px;
+}
+.wiki-toc-grid a {
+  color:#a0b0c8; text-decoration:none; font-size:12.5px;
+  padding:4px 8px; border-radius:4px; transition:all .15s;
+}
+.wiki-toc-grid a:hover { background:#2a3a4a; color:#fff; }
+
+.wiki-section {
+  background:#1a1a22; border:1px solid #26262e; border-radius:10px;
+  padding:18px 22px; margin-bottom:16px;
+}
+.wiki-section h2 {
+  font-size:17px; color:#fff; margin:0 0 14px;
+  padding-bottom:10px; border-bottom:2px solid #2a6ab0;
+  display:flex; align-items:center; gap:10px;
+}
+.wiki-section h3 {
+  font-size:14px; color:#8ab8e8; margin:16px 0 8px;
+  padding-left:8px; border-left:3px solid #4a9eff;
+}
+.wiki-section h4 {
+  font-size:13px; color:#ffd080; margin:0 0 6px;
+}
+.wiki-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:26px; height:26px; background:#2a6ab0; color:#fff;
+  border-radius:50%; font-size:13px; font-weight:700; flex-shrink:0;
+}
+.wiki-section p { margin:6px 0; line-height:1.75; color:#c0c0d0; font-size:13px; }
+.wiki-section ul, .wiki-section ol { margin:8px 0; padding-left:22px; }
+.wiki-section li { margin:4px 0; line-height:1.7; color:#b0b0c0; font-size:13px; }
+.wiki-section code {
+  background:#2a2a34; padding:1px 6px; border-radius:4px;
+  font-size:12px; color:#ffd080;
+}
+.wiki-section pre {
+  background:#121218; border:1px solid #2a2a34; border-radius:0 0 6px 6px;
+  padding:12px 16px; margin:0 0 10px; font-size:12px; color:#80e090;
+  overflow-x:auto; line-height:1.6;
+}
+
+.wiki-steps { display:flex; flex-direction:column; gap:8px; margin:10px 0; }
+.wiki-step {
+  display:flex; align-items:flex-start; gap:10px;
+  background:#1e1e28; border-radius:8px; padding:10px 14px;
+  font-size:13px; color:#c0c0d0; line-height:1.6;
+}
+.wiki-step-n {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; background:#4a9eff; color:#fff;
+  border-radius:50%; font-size:12px; font-weight:700; flex-shrink:0;
+}
+
+.wiki-table {
+  width:100%; border-collapse:collapse; margin:10px 0; font-size:12.5px;
+}
+.wiki-table th {
+  background:#2a3a4a; color:#c0d8f0; padding:8px 12px; text-align:left;
+  border:1px solid #3a4a5a; font-weight:600;
+}
+.wiki-table td {
+  padding:7px 12px; border:1px solid #2a2a34; color:#a0a0b0;
+}
+.wiki-table tr:nth-child(even) td { background:#1e1e26; }
+
+.wiki-note {
+  background:#1a2a3a; border-left:3px solid #4a9eff; border-radius:0 6px 6px 0;
+  padding:8px 14px; margin:10px 0; font-size:12.5px; color:#8ab8e8; line-height:1.6;
+}
+.wiki-warn {
+  background:#3a1a1a; border-left:3px solid #ff5a5a; border-radius:0 6px 6px 0;
+  padding:8px 14px; margin:10px 0; font-size:12.5px; color:#e88a8a; line-height:1.6;
+}
+.wiki-rule {
+  background:#2a2a1a; border-left:3px solid #ffd050; border-radius:0 6px 6px 0;
+  padding:8px 14px; margin:8px 0; font-size:12.5px; color:#e8d08a; line-height:1.6;
+}
+/* 「提示」块：绿色，和 note（蓝）/rule（黄）/warn（红）区分开 */
+.wiki-tip {
+  background:#15291c; border-left:3px solid #40ff70; border-radius:0 6px 6px 0;
+  padding:8px 14px; margin:10px 0; font-size:12.5px; color:#86d79c; line-height:1.6;
+}
+
+.wiki-code-title {
+  background:#2a2a34; color:#a0a0b0; font-size:11px; padding:4px 12px;
+  border-radius:6px 6px 0 0; border:1px solid #2a2a34; border-bottom:none;
+  margin-top:10px;
+}
+
+.wiki-color-row { display:flex; gap:12px; margin:10px 0; }
+.wiki-color-box {
+  flex:1; height:50px; border-radius:8px; display:flex;
+  align-items:center; justify-content:center; font-size:12px; font-weight:600;
+}
+
+.wiki-bigevent {
+  background:#1e1e28; border:1px solid #2a2a34; border-radius:8px;
+  padding:10px 14px; margin:8px 0;
+}
+.wiki-bigevent p { margin:4px 0; font-size:12.5px; }
+
+.wiki-faq p {
+  background:#1e1e28; border-radius:6px; padding:8px 12px; margin:6px 0;
+}
+

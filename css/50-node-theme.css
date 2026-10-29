@@ -1,0 +1,55 @@
+/* 50-node-theme.css — 节点版：三栏 + 底部节点编辑器 */
+/* ===== 节点版：三栏 + 底部节点编辑器 ===== */
+body.new-ui {
+  background:#1a1a1f;
+  display:grid !important;
+  grid-template-columns:var(--left-w,310px) 5px 1fr 5px var(--right-w,330px);
+  grid-template-rows:1fr 5px var(--editor-h,38vh);
+  grid-template-areas:
+    "left splitl stage splitr right"
+    "splitb splitb splitb splitb splitb"
+    "editor editor editor editor editor";
+  height:100vh; overflow:hidden;
+}
+body.new-ui .classic-sidebar { display:contents; }
+body.new-ui .panel-left {
+  grid-area:left; background:#22222a; border-right:1px solid #2e2e38;
+  padding:12px; overflow-y:auto; gap:10px; display:flex; flex-direction:column;
+}
+/* 日志section填满左栏剩余高度 */
+body.new-ui .panel-left .panel-section:last-child { flex:1 1 auto; display:flex; flex-direction:column; min-height:140px; }
+body.new-ui .panel-left .panel-section:last-child .log-box { flex:1 1 auto; max-height:none; }
+body.new-ui .panel-right {
+  grid-area:right; background:#22222a; border-left:1px solid #2e2e38;
+  padding:12px; overflow-y:auto; gap:10px;
+}
+body.new-ui .stage-area { grid-area:stage; background:#16161b; height:auto; }
+body.new-ui #splitLeft { grid-area:splitl; }
+body.new-ui #splitRight { grid-area:splitr; }
+body.new-ui #splitBottom { grid-area:splitb; }
+body.new-ui .node-editor { grid-area:editor; }
+body.new-ui .splitter { display:block; background:#2e2e38; z-index:10; }
+body.new-ui .splitter-v { cursor:col-resize; }
+body.new-ui .splitter-h { cursor:row-resize; }
+body.new-ui .splitter:hover { background:#4a9eff; }
+body.new-ui .mode-tab[data-mode="visual"] { display:none; }
+body.new-ui #visualMode { display:none !important; }
+body.new-ui .panel-title { font-size:13px; color:#e0e0ea; border-bottom:1px solid #2e2e38; padding-bottom:8px; }
+body.new-ui .panel-title::before { background:linear-gradient(180deg,#4a9eff,#3a7fd4); }
+body.new-ui .panel-section { background:#26262e; border:1px solid #30303a; border-radius:8px; padding:10px; gap:6px; }
+body.new-ui .panel-label { color:#8888a0; font-size:11px; }
+body.new-ui .btn { border-radius:6px; background:#2e2e38; border:1px solid #3a3a46; color:#c8c8d4; padding:5px 10px; font-size:11px; }
+body.new-ui .btn:hover { background:#383846; border-color:#4a9eff; color:#fff; }
+body.new-ui .btn.primary { background:#3a7fd4; border-color:#3a7fd4; color:#fff; }
+body.new-ui .btn.danger { background:#c43a3a; border-color:#c43a3a; color:#fff; }
+body.new-ui input, body.new-ui select, body.new-ui textarea { background:#1a1a22; border:1px solid #353542; color:#d8d8e4; font-size:11px; padding:5px 8px; border-radius:5px; }
+body.new-ui .log-box { background:#1a1a22; border:1px solid #30303a; border-radius:6px; max-height:100px; font-size:11px; }
+body.new-ui .point-list-item { background:#2a2a34; border:1px solid #3a3a46; border-radius:6px; padding:6px 8px; font-size:11px; }
+body.new-ui .point-list-item.active { border-color:#4a9eff; background:#2a3a52; }
+body.new-ui .stage-hint { color:#3a3a46; }
+body.new-ui .bg-toggle { display:none; }
+/* 节点版护送模式：紫色抠像背景 */
+body.new-ui.chroma-key { background:#990066 !important; }
+body.new-ui.chroma-key .stage-area { background:#990066 !important; }
+.node-editor-toggle { display:none; }
+body.new-ui .node-editor-toggle { display:none !important; }

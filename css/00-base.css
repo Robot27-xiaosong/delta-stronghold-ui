@@ -1,0 +1,38 @@
+/* 00-base.css — 全局变量 & 基础样式 */
+/* ============================================================
+   全局变量 & 基础
+   ============================================================ */
+:root {
+  --bg-color: #ffffff;
+  /* 据点尺寸 / 边框粗细：由设置面板写入，新建据点自动继承 */
+  --point-size: 220px;
+  --border-width: 7px;
+  --gti-text: #40ff70;
+  --havvk-text: #ff5050;
+  --neutral-text: #ffffff;
+  --gti-glow: #40ff70;
+  --havvk-glow: #ff5050;
+  --white-glow: #ffffff;
+  --point-bg-alpha: 0.82;   /* 灰色方块透明度，设置面板可调，导出走同一个值 */
+  --point-bg: rgba(38, 40, 46, var(--point-bg-alpha));
+  --panel-bg: rgba(18, 20, 26, 0.97);
+  --panel-border: #2a2d36;
+  --panel-text: #d8dae0;
+  --panel-muted: #8a8d98;
+  --accent: #5b8cff;
+  --error: #ff6b6b;
+  --ok: #51cf66;
+}
+
+body.chroma-key { --bg-color: #990066; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg-color);
+  font-family: "Consolas", "Microsoft YaHei", "Segoe UI", sans-serif;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  transition: background-color 0.25s ease;
+}

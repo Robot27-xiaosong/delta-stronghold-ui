@@ -1,0 +1,66 @@
+{
+  "version": "3.0.0",
+  "name": "护送车队 · GTI · 成功到撤离点（5:15）",
+  "createdAt": "2026-10-29T10:16:00.000Z",
+  "blocks": [
+    {
+      "type": "greenState"
+    },
+    {
+      "type": "bigEvent",
+      "variant": 4,
+      "totalSeconds": 270,
+      "warningAt": 60,
+      "faction": "gti",
+      "label": "护送车队",
+      "checkpoints": [
+        {
+          "remain": 180,
+          "bonus": 45
+        },
+        {
+          "remain": 150,
+          "bonus": 45
+        },
+        {
+          "remain": 120,
+          "bonus": 45
+        },
+        {
+          "remain": 90,
+          "bonus": 0
+        }
+      ],
+      "tankStates": [
+        {
+          "seg": 1,
+          "at": 0,
+          "state": "none"
+        },
+        {
+          "seg": 1,
+          "at": 45,
+          "state": "arrow2"
+        },
+        {
+          "seg": 2,
+          "at": 30,
+          "state": "repair"
+        },
+        {
+          "seg": 2,
+          "at": 55,
+          "state": "arrow3"
+        },
+        {
+          "seg": 4,
+          "at": 10,
+          "state": "none"
+        }
+      ],
+      "failMode": "none",
+      "failValue": 0,
+      "holdSeconds": 2
+    }
+  ]
+}

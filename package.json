@@ -1,0 +1,63 @@
+{
+  "name": "delta-stronghold-ui",
+  "version": "3.0.0",
+  "description": "三角洲行动 · 据点UI组件 v3 - Electron桌面版",
+  "main": "main.js",
+  "author": "B站我是小宋awa",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64",
+    "dist:portable": "electron-builder --win --x64 --config portable"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.0",
+    "esbuild": "^0.28.2",
+    "mp4-muxer": "^5.2.2"
+  },
+  "build": {
+    "appId": "com.delta.stronghold",
+    "productName": "三角洲据点UI",
+    "forceCodeSigning": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "三角洲据点UI"
+    },
+    "portable": {
+      "artifactName": "三角洲据点UI-v${version}-便携版.exe"
+    }
+  }
+}
